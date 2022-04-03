@@ -15,7 +15,7 @@ export default {
   name: 'HeaderBar',
   data () {
     return {
-      title: "ARSP Solvers"
+      title: "ARSP Solver"
     }
   }
 }
