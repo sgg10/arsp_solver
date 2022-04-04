@@ -5,6 +5,7 @@ Vue.use(VueRouter)
 
 const routerOptions = [
   { path: '/', name: 'Home' },
+  { path: '/grapher', name: "Grapher" },
   { path: '*', redirect: { name: 'Home' } }
 ]
 

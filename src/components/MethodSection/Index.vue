@@ -13,9 +13,10 @@
                         button
                         v-for="(method, idx) in methods"
                         :key="idx"
-                        :to="method.to"
                     >
-                        {{method.name}}
+                        <router-link :to="method.to">
+                            {{method.name}}
+                        </router-link>
                     </b-list-group-item>
                 </b-list-group>
             </b-col>
@@ -45,7 +46,8 @@ export default {
         padding: 15px;
         margin-bottom: 34px;
 
-        & .list-group-item {
+        a {
+            color: black;
             &:hover {
                 color: rgb(138, 38, 38);
             }
