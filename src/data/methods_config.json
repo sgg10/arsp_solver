@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Abiertos",
+        "methods": [
+            { "name": "Incremental Search", "to": "Incremental" },
+            { "name": "Bisection", "to": "Bisection" },
+            { "name": "Secant", "to": "Secants" }
+        ]
+    },
+    {
+        "name": "Abiertos",
+        "methods": [
+            { "name": "Incremental Search", "to": "Incremental" },
+            { "name": "Bisection", "to": "Bisection" },
+            { "name": "Secant", "to": "Secants" }
+        ]
+    },
+    {
+        "name": "Abiertos",
+        "methods": [
+            { "name": "Incremental Search", "to": "Incremental" },
+            { "name": "Bisection", "to": "Bisection" },
+            { "name": "Secant", "to": "Secants" }
+        ]
+    },
+    {
+        "name": "Abiertos",
+        "methods": [
+            { "name": "Incremental Search", "to": "Incremental" },
+            { "name": "Bisection", "to": "Bisection" },
+            { "name": "Secant", "to": "Secants" }
+        ]
+    },
+    {
+        "name": "Abiertos",
+        "methods": [
+            { "name": "Incremental Search", "to": "Incremental" },
+            { "name": "Bisection", "to": "Bisection" },
+            { "name": "Secant", "to": "Secants" }
+        ]
+    },
+    {
+        "name": "Abiertos",
+        "methods": [
+            { "name": "Incremental Search", "to": "Incremental" },
+            { "name": "Bisection", "to": "Bisection" },
+            { "name": "Secant", "to": "Secants" }
+        ]
+    }
+]

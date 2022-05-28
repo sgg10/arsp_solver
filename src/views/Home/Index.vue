@@ -3,7 +3,7 @@
         <HomeTitle/>
         <b-row>
             <b-col>
-                <MethodSection :methods="[{name: 'Online ARSP Grapher', to: '/grapher'}]" name="Grapher" />
+                <MethodSection :methods="[{name: 'Online ARSP Grapher', to: 'Grapher'}]" name="Grapher" />
             </b-col>
         </b-row>
         <b-row>
@@ -17,66 +17,14 @@
 <script>
 import HomeTitle from './HomeTitle.vue'
 import MethodSection from '@/components/MethodSection/Index.vue'
-
-import { MathFunction } from '@/utils/Maths'
+import methodsData from "@/data/methods_config.json"
 
 export default {
     name: "HomePage",
     components: { HomeTitle, MethodSection },
     data () {
         return {
-            // TODO: Usar esta función para simplificar.
-            f: new MathFunction('x^2 + x^2', "x").get_simplify(),
-            sections: [
-                {
-                    name: "Abiertos",
-                    methods: [
-                        { name: 'Incremental Search', to: 'Incremental' },
-                        { name: 'Bisection', to: 'Bisection' },
-                        { name: 'Secant', to: 'Secants' },
-                    ]
-                },
-                {
-                    name: "Abiertos",
-                    methods: [
-                        { name: 'Incremental Search', to: 'Incremental' },
-                        { name: 'Bisection', to: 'Bisection' },
-                        { name: 'Secant', to: 'Secants' },
-                    ]
-                },
-                {
-                    name: "Abiertos",
-                    methods: [
-                        { name: 'Incremental Search', to: 'Incremental' },
-                        { name: 'Bisection', to: 'Bisection' },
-                        { name: 'Secant', to: 'Secants' },
-                    ]
-                },
-                {
-                    name: "Abiertos",
-                    methods: [
-                        { name: 'Incremental Search', to: 'Incremental' },
-                        { name: 'Bisection', to: 'Bisection' },
-                        { name: 'Secant', to: 'Secants' },
-                    ]
-                },
-                {
-                    name: "Abiertos",
-                    methods: [
-                        { name: 'Incremental Search', to: 'Incremental' },
-                        { name: 'Bisection', to: 'Bisection' },
-                        { name: 'Secant', to: 'Secants' },
-                    ]
-                },
-                {
-                    name: "Abiertos",
-                    methods: [
-                        { name: 'Incremental Search', to: 'Incremental' },
-                        { name: 'Bisection', to: 'Bisection' },
-                        { name: 'Secant', to: 'Secants' },
-                    ]
-                },
-            ]
+            sections: methodsData
         }
     }
 }
