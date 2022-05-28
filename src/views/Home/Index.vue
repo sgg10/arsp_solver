@@ -1,7 +1,6 @@
 <template>
     <div class="Home">
         <HomeTitle/>
-        {{f}}
         <b-row>
             <b-col>
                 <MethodSection :methods="[{name: 'Online ARSP Grapher', to: '/grapher'}]" name="Grapher" />
@@ -26,6 +25,7 @@ export default {
     components: { HomeTitle, MethodSection },
     data () {
         return {
+            // TODO: Usar esta función para simplificar.
             f: new MathFunction('x^2 + x^2', "x").get_simplify(),
             sections: [
                 {
