@@ -7,6 +7,8 @@ const routerOptions = [
   { path: '/', name: 'Home' },
   { path: '/grapher', name: "Grapher" },
   { path: '/incremental_search', name: "IncrementalSearch" },
+  { path: '/bisection', name: "Bisection" },
+  { path: '/false_rule', name: "FalseRule" },
   { path: '*', redirect: { name: 'Home' } }
 ]
 

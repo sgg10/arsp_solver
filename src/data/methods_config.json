@@ -1,10 +1,10 @@
 [
     {
-        "name": "Abiertos",
+        "name": "Nonlinear Equations - Interval",
         "methods": [
             { "name": "Incremental Search", "to": "/incremental_search" },
-            { "name": "Bisection", "to": "Bisection" },
-            { "name": "Secant", "to": "Secants" }
+            { "name": "Bisection", "to": "/bisection" },
+            { "name": "False Rule", "to": "/false_rule" }
         ]
     },
     {

@@ -19,4 +19,14 @@ function execIncrementalSearch({func, x0, x1, iterations, tolerance}){
     return post(API_INTERVAL_URL + '/incremental_search', data, config)
 }
 
-export { execIncrementalSearch }
+function execBisection({func, x0, x1, iterations, tolerance}){
+    let { config, data } = intervalRequest(func, x0, x1, iterations, tolerance)
+    return post(API_INTERVAL_URL + '/bisection', data, config)
+}
+
+function execFalseRule({func, x0, x1, iterations, tolerance}){
+    let { config, data } = intervalRequest(func, x0, x1, iterations, tolerance)
+    return post(API_INTERVAL_URL + '/false_rule', data, config)
+}
+
+export { execIncrementalSearch, execBisection, execFalseRule }

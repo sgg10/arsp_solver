@@ -49,7 +49,7 @@
                 </b-row>
             </b-col>
         </b-row>
-        <b-row class="justify-content-lg-center">
+        <b-row class="justify-content-lg-center" v-if="function_image">
             <b-col class="text-center" col lg="6">
                 <Chart :src="function_image"/>
             </b-col>

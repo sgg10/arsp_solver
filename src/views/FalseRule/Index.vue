@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="text-center">
-            <h1 class="my-5">Incremental Search</h1>
+            <h1 class="my-5">False Rule</h1>
         </div>
 
         <b-row>
@@ -28,26 +28,36 @@
         <ResultsMethodLayout>
             <section id="success_result" v-if="method_status=='success'">
                 <b-row >
-                    <b-col cols="2" class="text-center">
+                    <b-col cols="1" class="text-right">
                         <b-icon-check-circle-fill variant="success" font-scale="2" />
                     </b-col>
                     <b-col>
                         <h1>Result</h1>
                     </b-col>
                 </b-row>
-                <b-row>
-                    <b-col class="text-center">
-                        <h5>{{ typeof result == typeof ''  ? result : result[0] }}</h5>
-                    </b-col>
-                </b-row>
             </section>
-            <section id="success_result" v-if="method_status=='failed'">
+            <section id="failed_result" v-if="method_status=='failed'">
                 <b-row >
                     <b-col cols="1" class="text-right">
                         <b-icon-dash-circle-fill variant="danger" font-scale="2" />
                     </b-col>
                     <b-col>
                         <h1>Result</h1>
+                    </b-col>
+                </b-row>
+            </section>
+            <section id="result">
+                <b-row>
+                    <b-col class="text-center" >
+                        <b-table
+                            class="table_function"
+                            hover
+                            :items="table"
+                            :fields="headers"
+                            head-variant="light"
+                            responsive
+                        >
+                        </b-table>
                     </b-col>
                 </b-row>
                 <b-row>
@@ -65,16 +75,17 @@
 import { mapState, mapMutations } from 'vuex'
 import InputsMethodLayout from '@/layouts/nonlinear/interval/Inputs.vue'
 import ResultsMethodLayout from '@/layouts/Methods/ResultsMethod.vue'
-import { execIncrementalSearch } from '@/api/nonlinear'
+import { execFalseRule } from '@/api/nonlinear'
 
 export default {
-    name: 'IncrementalSearch',
+    name: 'FalseRule',
     components: { InputsMethodLayout, ResultsMethodLayout },
     data () {
         return {
             result: '',
             method_status: '',
-            graph: ''
+            table: [],
+            headers: []
         }
     },
     methods: {
@@ -88,6 +99,8 @@ export default {
         async execMethod(){
             this.result = ''
             this.method_status = ''
+            this.table = []
+            this.headers = []
             const config = {
                 func: this.func,
                 x0: this.x0,
@@ -95,14 +108,28 @@ export default {
                 tolerance: this.tolerance,
                 iterations: this.iterations
             }
-            const { data } = await execIncrementalSearch(config)
-            const {method_status, result } = data
+            const { data } = await execFalseRule(config)
+            const { method_status, result, iterations } = data
             this.result = result
             this.method_status = method_status
+            this.headers = iterations.shift()
+            this.table = this.transformRows(iterations)
+
         },
+        transformRows(iterations){
+            return iterations.map((row) => ({
+                i: row[0], x0: row[1], x1: row[2], xm: row[3], 'f(xm)': row[4], error: row[5]
+            }))
+        }
     },
     computed: {
         ...mapState('nonlinear', ["func", "x0", "x1", "iterations", "tolerance"])
     }
 }
 </script>
+
+<style lang="scss">
+.table_function{
+    background-color: #c0c0c0;
+}
+</style>
