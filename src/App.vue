@@ -26,11 +26,14 @@ export default {
 
 
 <style lang="scss">
+body {
+  background-color: rgb(9, 38, 49) !important;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(9, 38, 49);
   color: #FFFFFF;
 }
 </style>

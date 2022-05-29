@@ -2,7 +2,7 @@
     {
         "name": "Abiertos",
         "methods": [
-            { "name": "Incremental Search", "to": "Incremental" },
+            { "name": "Incremental Search", "to": "/incremental_search" },
             { "name": "Bisection", "to": "Bisection" },
             { "name": "Secant", "to": "Secants" }
         ]

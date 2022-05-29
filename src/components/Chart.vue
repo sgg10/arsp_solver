@@ -1,6 +1,6 @@
 <template>
     <div class="text-center my-5">
-        <img width="100%" :src="src" />
+        <img width="100%" :src="'data:image/png;base64,'+src" />
     </div>
 </template>
 

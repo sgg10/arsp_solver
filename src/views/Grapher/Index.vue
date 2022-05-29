@@ -62,12 +62,6 @@
                 />
             </b-col>
         </b-row>
-        <!-- <b-row>
-            <b-col >
-                {{derivated_function}}
-            </b-col>
-        </b-row> -->
-
 
     </div>
 </template>
@@ -109,7 +103,7 @@ export default {
             const { data } = await getFuntionGraph(this.function_config)
 
             let {graph_image, derivative_function, simplified_function, integrate_function} = data
-            this.function_image = 'data:image/png;base64,' + graph_image
+            this.function_image = graph_image
             this.function_info.derivated_function = derivative_function
             this.function_info.simplified_function = simplified_function
             this.function_info.integrated_function = integrate_function

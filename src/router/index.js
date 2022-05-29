@@ -6,6 +6,7 @@ Vue.use(VueRouter)
 const routerOptions = [
   { path: '/', name: 'Home' },
   { path: '/grapher', name: "Grapher" },
+  { path: '/incremental_search', name: "IncrementalSearch" },
   { path: '*', redirect: { name: 'Home' } }
 ]
 
