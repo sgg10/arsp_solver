@@ -6,9 +6,13 @@ Vue.use(VueRouter)
 const routerOptions = [
   { path: '/', name: 'Home' },
   { path: '/grapher', name: "Grapher" },
-  { path: '/incremental_search', name: "IncrementalSearch" },
-  { path: '/bisection', name: "Bisection" },
-  { path: '/false_rule', name: "FalseRule" },
+  { path: '/incremental_search', name: "Nonlinear/Interval/IncrementalSearch" },
+  { path: '/bisection', name: "Nonlinear/Interval/Bisection" },
+  { path: '/false_rule', name: "Nonlinear/Interval/FalseRule" },
+  { path: '/newton', name: "Nonlinear/Open/Newton" },
+  { path: '/multi_roots', name: "Nonlinear/Open/MultiRoots" },
+  { path: '/secant', name: "Nonlinear/Open/Secant" },
+  { path: '/fixed_point', name: "Nonlinear/Open/FixedPoint" },
   { path: '*', redirect: { name: 'Home' } }
 ]
 

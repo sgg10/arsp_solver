@@ -8,11 +8,12 @@
         ]
     },
     {
-        "name": "Abiertos",
+        "name": "Nonlinear Equations - Open",
         "methods": [
-            { "name": "Incremental Search", "to": "Incremental" },
-            { "name": "Bisection", "to": "Bisection" },
-            { "name": "Secant", "to": "Secants" }
+            { "name": "Newton", "to": "/newton" },
+            { "name": "Multi Roots", "to": "/multi_roots" },
+            { "name": "Secant", "to": "/secant" },
+            { "name": "Fixed Point", "to": "/fixed_point" }
         ]
     },
     {

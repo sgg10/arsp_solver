@@ -7,6 +7,11 @@
         <b-row>
             <b-col>
                 <InputsMethodLayout
+                    active_func
+                    active_x0
+                    active_x1
+                    active_iterations
+                    active_tolerance
                     :in_func="func"
                     :in_x0="x0"
                     :in_x1="x1"
@@ -63,7 +68,7 @@
 <script>
 // import HelpsMethodLayout from '@/layouts/HelpsMethod.vue'
 import { mapState, mapMutations } from 'vuex'
-import InputsMethodLayout from '@/layouts/nonlinear/interval/Inputs.vue'
+import InputsMethodLayout from '@/layouts/nonlinear/Inputs.vue'
 import ResultsMethodLayout from '@/layouts/Methods/ResultsMethod.vue'
 import { execIncrementalSearch } from '@/api/nonlinear'
 
