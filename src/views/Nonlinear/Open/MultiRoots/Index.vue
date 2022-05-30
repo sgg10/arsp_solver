@@ -57,7 +57,9 @@
                             :items="table"
                             :fields="headers"
                             head-variant="light"
-                            responsive
+                            responsive="lg"
+                            striped
+                            bordered
                         >
                         </b-table>
                     </b-col>

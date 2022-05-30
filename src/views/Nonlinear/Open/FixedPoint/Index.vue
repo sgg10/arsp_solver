@@ -60,7 +60,9 @@
                             :items="table"
                             :fields="headers"
                             head-variant="light"
-                            responsive
+                            responsive="lg"
+                            striped
+                            bordered
                         >
                         </b-table>
                     </b-col>
@@ -132,7 +134,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .table_function{
     background-color: #c0c0c0;
 }

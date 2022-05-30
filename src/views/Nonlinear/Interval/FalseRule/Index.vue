@@ -60,7 +60,9 @@
                             :items="table"
                             :fields="headers"
                             head-variant="light"
-                            responsive
+                            responsive="lg"
+                            striped
+                            bordered
                         >
                         </b-table>
                     </b-col>
@@ -68,7 +70,7 @@
                 <b-row>
                     <b-col class="text-center">
                         <h5>{{ typeof result == typeof ''  ? result : result[0] }}</h5>
-                    </b-col>
+                    </b-col>299
                 </b-row>
             </section>
         </ResultsMethodLayout>

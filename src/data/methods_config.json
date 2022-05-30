@@ -17,35 +17,40 @@
         ]
     },
     {
-        "name": "Abiertos",
+        "name": "Linear Equations - Elimination",
         "methods": [
-            { "name": "Incremental Search", "to": "Incremental" },
-            { "name": "Bisection", "to": "Bisection" },
-            { "name": "Secant", "to": "Secants" }
+            { "name": "Gaussian Elimination", "to": "/gausian_elimination" },
+            { "name": "Partial Pivot", "to": "/partial_pivot", "variant": "warning" },
+            { "name": "Total Pivot", "to": "/total_pivot", "variant": "warning" }
         ]
     },
     {
-        "name": "Abiertos",
+        "name": "Linear Equations - Factorization",
         "methods": [
-            { "name": "Incremental Search", "to": "Incremental" },
-            { "name": "Bisection", "to": "Bisection" },
-            { "name": "Secant", "to": "Secants" }
+            { "name": "Simple LU", "to": "/simple_lu", "variant": "danger" },
+            { "name": "Pivot LU", "to": "/pivot_lu", "variant": "danger" },
+            { "name": "Crout", "to": "/crout", "variant": "dark" },
+            { "name": "Doolittle", "to": "/doolittle", "variant": "dark" },
+            { "name": "Cholesky", "to": "/cholesky","variant": "dark" }
         ]
     },
     {
-        "name": "Abiertos",
+        "name": "Linear Equations - Iterative",
         "methods": [
-            { "name": "Incremental Search", "to": "Incremental" },
-            { "name": "Bisection", "to": "Bisection" },
-            { "name": "Secant", "to": "Secants" }
+            { "name": "Jacobi", "to": "/jacobi", "variant": "danger" },
+            { "name": "Gauss-Seidel", "to": "/gauss_seidel", "variant": "dark" },
+            { "name": "SOR", "to": "/sor", "variant": "danger" },
+            { "name": "Vandermonde", "to": "/vandermonde", "variant": "dark" }
         ]
     },
     {
-        "name": "Abiertos",
+        "name": "Interpolation",
         "methods": [
-            { "name": "Incremental Search", "to": "Incremental" },
-            { "name": "Bisection", "to": "Bisection" },
-            { "name": "Secant", "to": "Secants" }
+            { "name": "Newton Divided Differences", "to": "/newton_div_diff", "variant": "dark" },
+            { "name": "Larange", "to": "/larange", "variant": "dark" },
+            { "name": "Linear Spline", "to": "/linear_spline", "variant": "dark" },
+            { "name": "Quadratic Spline", "to": "/quadratic_spline", "variant": "danger" },
+            { "name": "Cubic Spline", "to": "/cubic_spline", "variant": "danger" }
         ]
     }
 ]

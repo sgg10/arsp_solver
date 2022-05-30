@@ -13,6 +13,7 @@
                         button
                         v-for="(method, idx) in methods"
                         :key="idx"
+                        :variant="method.variant"
                     >
                         <router-link :to="method.to">
                             {{method.name}}
