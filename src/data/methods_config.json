@@ -28,18 +28,18 @@
         "name": "Linear Equations - Factorization",
         "methods": [
             { "name": "Simple LU", "to": "/simple_lu", "variant": "danger" },
-            { "name": "Pivot LU", "to": "/pivot_lu", "variant": "danger" },
-            { "name": "Crout", "to": "/crout", "variant": "dark" },
-            { "name": "Doolittle", "to": "/doolittle", "variant": "dark" },
-            { "name": "Cholesky", "to": "/cholesky","variant": "dark" }
+            { "name": "Pivot LU", "to": "/pivot_lu"},
+            { "name": "Crout", "to": "/crout" },
+            { "name": "Doolittle", "to": "/doolittle" },
+            { "name": "Cholesky", "to": "/cholesky" }
         ]
     },
     {
         "name": "Linear Equations - Iterative",
         "methods": [
-            { "name": "Jacobi", "to": "/jacobi", "variant": "danger" },
+            { "name": "Jacobi", "to": "/jacobi", "variant": "dark" },
             { "name": "Gauss-Seidel", "to": "/gauss_seidel", "variant": "dark" },
-            { "name": "SOR", "to": "/sor", "variant": "danger" },
+            { "name": "SOR", "to": "/sor", "variant": "dark" },
             { "name": "Vandermonde", "to": "/vandermonde", "variant": "dark" }
         ]
     },

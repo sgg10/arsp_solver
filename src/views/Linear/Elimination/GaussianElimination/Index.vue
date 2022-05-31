@@ -7,6 +7,8 @@
         <b-row>
             <b-col>
                 <InputsMethodLayout
+                    active_A
+                    active_b
                     :in_A="A"
                     :in_b="b"
                     :in_n="n"

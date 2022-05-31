@@ -8,7 +8,7 @@
                     </b-input-group>
                 </b-col>
             </b-row>
-            <b-row v-if="n" class="my-3">
+            <b-row v-if="n && active_A" class="my-3">
                 <b-col cols="2" class="center">
                     <h1>A = </h1>
                 </b-col>
@@ -22,7 +22,7 @@
                     />
                 </b-col>
             </b-row>
-            <b-row v-if="n" class="my-3">
+            <b-row v-if="n && active_b" class="my-3">
                 <b-col cols="2" class="center">
                     <h1>b = </h1>
                 </b-col>

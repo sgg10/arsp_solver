@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="text-center">
-            <h1 class="my-5">Total Pivot</h1>
+            <h1 class="my-5">Doolittle</h1>
         </div>
 
         <b-row>
@@ -52,12 +52,33 @@
                         </b-col>
                     </b-row>
                     <b-collapse :id="`stage${idx}`">
-                        <b-row>
+                        <b-row class="my-3">
+                            <b-col class="text-center center"><h3>L</h3></b-col>
+                        </b-row>
+                        <b-row class="my-3">
                             <b-col class="center">
                                 <b-table
                                     class="table_function"
                                     hover
-                                    :items="table"
+                                    :items="table.L"
+                                    :fields="headers"
+                                    head-variant="light"
+                                    responsive="md"
+                                    striped
+                                    bordered
+                                >
+                                </b-table>
+                            </b-col>
+                        </b-row>
+                        <b-row class="my-3">
+                            <b-col class="text-center center"><h3>U</h3></b-col>
+                        </b-row>
+                        <b-row class="my-3">
+                            <b-col class="center">
+                                <b-table
+                                    class="table_function"
+                                    hover
+                                    :items="table.U"
                                     :fields="headers"
                                     head-variant="light"
                                     responsive="md"
@@ -69,14 +90,23 @@
                         </b-row>
                     </b-collapse>
                 </section>
-                <b-row v-if="result">
+                <b-row v-if="x && z">
                     <b-col class="text-center center my-3">
                         <b-editable-table
                             bordered
                             head-variant="light"
                             class="editable-table matrix"
-                            v-model="result"
+                            v-model="x"
                             :fields="[{ key: 'x', label: 'X', type: 'number', editable: false }]"
+                        />
+                    </b-col>
+                    <b-col class="text-center center my-3">
+                        <b-editable-table
+                            bordered
+                            head-variant="light"
+                            class="editable-table matrix"
+                            v-model="z"
+                            :fields="[{ key: 'z', label: 'Z', type: 'number', editable: false }]"
                         />
                     </b-col>
                 </b-row>
@@ -86,20 +116,20 @@
 </template>
 
 <script>
-// TODO: Change to Total Pivot Method
 // import HelpsMethodLayout from '@/layouts/HelpsMethod.vue'
 import { mapState, mapMutations } from 'vuex'
 import InputsMethodLayout from '@/layouts/linear/Inputs.vue'
 import ResultsMethodLayout from '@/layouts/Methods/ResultsMethod.vue'
-import { execGuassianElimination } from '@/api/linear'
+import { execDoolittle } from '@/api/linear'
 import BEditableTable from 'bootstrap-vue-editable-table';
 
 export default {
-    name: 'TotalPivot',
+    name: 'Crout',
     components: { InputsMethodLayout, ResultsMethodLayout, BEditableTable },
     data () {
         return {
-            result: '',
+            x: '',
+            z: '',
             method_status: '',
             tables: [],
             headers: []
@@ -113,39 +143,51 @@ export default {
             this.result = ''
             this.method_status = ''
             this.tables = []
-            const config = { A, b }
-            const { data } = await execGuassianElimination(config)
+            const config = { A, b, 'n': this.n }
+            const { data } = await execDoolittle(config)
             console.log(data)
             const { method_status, result } = data
-            const { stages, x } = result
+            const { stages, x, z } = result
+            console.log(method_status, stages, x, z)
             let xRows = []
+            let zRows = []
             for (let i = 0; i < x.length; i++) {
                 xRows.push({ 'x': x[i], id: i })
+                zRows.push({ 'z': z[i], id: i })
             }
-            for (let i = 0; i < stages[0][0].length; i++) {
-                this.headers.push(i+1 == stages[0][0].length ? "b" : `x${i}`)
-            }
-            this.result = xRows
+            this.x = xRows
+            this.z = zRows
             this.method_status = method_status
+            for (let i = 0; i < x.length; i++) {
+                this.headers.push(`x${i}`)
+            }
             this.tables = this.transformRows(stages)
         },
         transformRows(iterations){
 
-            let tables = []
+            let stages = []
 
             iterations.forEach(iteration => {
-                let table = []
-                iteration.forEach(row => {
+                let tables = { L: [], U: [] }
+                const { L, U } = iteration
+                L.forEach(row => {
                     let transformed_row = {}
                     for (let i = 0; i < row.length; i++){
-                        transformed_row[i+1 == row.length ? "b" : `x${i}`] = row[i]
+                        transformed_row[`x${i}`] = row[i]
                     }
-                    table.push(transformed_row)
+                    tables.L.push(transformed_row)
                 })
-                tables.push(table)
+                U.forEach(row => {
+                    let transformed_row = {}
+                    for (let i = 0; i < row.length; i++){
+                        transformed_row[`x${i}`] = row[i]
+                    }
+                    tables.U.push(transformed_row)
+                })
+                stages.push(tables)
             })
 
-            return tables
+            return stages
         },
         convertMatrix(){
             let A = []
