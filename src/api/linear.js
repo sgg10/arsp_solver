@@ -27,10 +27,10 @@ function execGuassianElimination({ A, b }){
 //     return post(API_ELIMINATION_URL + '/gaussian_elimination', data, config)
 // }
 
-// function execGuassianElimination({ A, b }){
-//     let { config, data } = eliminationRequest(A, b)
-//     return post(API_ELIMINATION_URL + '/gaussian_elimination', data, config)
-// }
+function execTotalPivot({ A, b, }){
+    let { config, data } = eliminationRequest(A, b)
+    return post(API_ELIMINATION_URL + '/total_pivot', data, config)
+}
 
 
 // * Factorization
@@ -67,12 +67,12 @@ function execPartialLU({ A }){
 
 // * Iterative
 
-function iterativeRequest(A, b, n, x0, iterations, tolerance, x, y) {
+function iterativeRequest(A, b, n, x0, iterations, tolerance, x, y, omega) {
     const config = {
         headers: { 'Content-Type': 'application/json' }
     }
     const data = JSON.stringify({
-        A, b, n, x0, iterations, tolerance, x, y
+        A, b, n, x0, iterations, tolerance, x, y, omega
     });
     return {config, data}
 }
@@ -82,6 +82,11 @@ function execJacobi({ A, b, x0, n, iterations, tolerance }){
     return post(API_ITERATIVE_URL + '/jacobi', data, config)
 }
 
+function execSOR({ A, b, x0, n, iterations, tolerance, omega }){
+    let { config, data } = iterativeRequest(A, b, n, x0, iterations, tolerance, null, null, omega)
+    return post(API_ITERATIVE_URL + '/sor', data, config)
+}
+
 function execVandermonde({ A, b, x0, n, iterations, tolerance, x, y }){
     let { config, data } = iterativeRequest(A, b, n, x0, iterations, tolerance, x, y)
     return post(API_ITERATIVE_URL + '/vandermonde', data, config)
@@ -89,10 +94,12 @@ function execVandermonde({ A, b, x0, n, iterations, tolerance, x, y }){
 
 export {
     execGuassianElimination,
+    execTotalPivot,
     execCrout,
     execDoolittle,
     execCholesky,
     execPartialLU,
     execJacobi,
+    execSOR,
     execVandermonde
 }

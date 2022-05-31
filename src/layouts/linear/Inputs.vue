@@ -79,6 +79,13 @@
                 </b-col>
             </b-row>
             <b-row class="my-3">
+                <b-col v-if="active_omega">
+                    <b-input-group prepend="Omega" class="mb-2 mr-sm-2 mb-sm-0">
+                        <b-form-input v-model="omega" placeholder="Omega"></b-form-input>
+                    </b-input-group>
+                </b-col>
+            </b-row>
+            <b-row class="my-3">
                 <b-col v-if="active_iterations">
                     <b-input-group prepend="Iterations" class="mb-2 mr-sm-2 mb-sm-0">
                         <b-form-input v-model="iterations" placeholder="Max iterations"></b-form-input>
@@ -112,6 +119,7 @@ export default {
         "in_n": String || Number,
         "in_iterations": String || Number,
         "in_tolerance": String || Number,
+        "in_omega": String || Number,
 
         "active_A": Boolean,
         "active_b": Boolean,
@@ -121,6 +129,7 @@ export default {
         "active_x0": Boolean,
         "active_iterations": Boolean,
         "active_tolerance": Boolean,
+        "active_omega": Boolean,
     },
     data () {
         return {
@@ -137,6 +146,7 @@ export default {
             x0: this.in_x0,
             iterations: this.in_iterations,
             tolerance: this.in_tolerance,
+            omega: this.in_omega
         }
     },
     watch: {
@@ -147,6 +157,7 @@ export default {
         y() { this.$emit('y', this.y) },
         iterations() { this.$emit('iterations', this.iterations) },
         tolerance() { this.$emit('tolerance', this.tolerance) },
+        omega() { this.$emit('omega', this.omega) },
         n(){
             this.xFields = []
             this.yFields = []

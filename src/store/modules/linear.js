@@ -8,7 +8,8 @@ export default {
         x: null,
         y: null,
         iterations: null,
-        tolerance: '1e-7'
+        tolerance: '1e-7',
+        omega: null
     },
     mutations: {
         SET_A: (state, payload) => {
@@ -34,6 +35,9 @@ export default {
         },
         SET_TOLERANCE: (state, payload) => {
             state.tolerance = payload
+        },
+        SET_OMEGA: (state, payload) => {
+            state.omega = payload
         }
     }
 }
