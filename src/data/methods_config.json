@@ -37,10 +37,10 @@
     {
         "name": "Linear Equations - Iterative",
         "methods": [
-            { "name": "Jacobi", "to": "/jacobi", "variant": "dark" },
-            { "name": "Gauss-Seidel", "to": "/gauss_seidel", "variant": "dark" },
+            { "name": "Jacobi", "to": "/jacobi"},
+            { "name": "Gauss-Seidel", "to": "/gauss_seidel", "variant": "danger" },
             { "name": "SOR", "to": "/sor", "variant": "dark" },
-            { "name": "Vandermonde", "to": "/vandermonde", "variant": "dark" }
+            { "name": "Vandermonde", "to": "/vandermonde"}
         ]
     },
     {

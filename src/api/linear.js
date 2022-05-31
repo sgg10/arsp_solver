@@ -4,7 +4,7 @@ import { BASE_API_URL } from '@/constants'
 const API_URL = BASE_API_URL + 'linear_equations'
 const API_ELIMINATION_URL = API_URL + '/elimination'
 const API_FACTORIZATION_URL = API_URL + '/factorization'
-// const API_ITERATIVE_URL = API_URL + '/iterative'
+const API_ITERATIVE_URL = API_URL + '/iterative'
 
 // * Elimination
 function eliminationRequest(A, b) {
@@ -67,4 +67,32 @@ function execPartialLU({ A }){
 
 // * Iterative
 
-export { execGuassianElimination, execCrout, execDoolittle, execCholesky, execPartialLU }
+function iterativeRequest(A, b, n, x0, iterations, tolerance, x, y) {
+    const config = {
+        headers: { 'Content-Type': 'application/json' }
+    }
+    const data = JSON.stringify({
+        A, b, n, x0, iterations, tolerance, x, y
+    });
+    return {config, data}
+}
+
+function execJacobi({ A, b, x0, n, iterations, tolerance }){
+    let { config, data } = iterativeRequest(A, b, n, x0, iterations, tolerance)
+    return post(API_ITERATIVE_URL + '/jacobi', data, config)
+}
+
+function execVandermonde({ A, b, x0, n, iterations, tolerance, x, y }){
+    let { config, data } = iterativeRequest(A, b, n, x0, iterations, tolerance, x, y)
+    return post(API_ITERATIVE_URL + '/vandermonde', data, config)
+}
+
+export {
+    execGuassianElimination,
+    execCrout,
+    execDoolittle,
+    execCholesky,
+    execPartialLU,
+    execJacobi,
+    execVandermonde
+}
