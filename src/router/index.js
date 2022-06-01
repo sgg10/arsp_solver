@@ -31,11 +31,11 @@ const routerOptions = [
   { path: '/sor', name: "Linear/Iterative/SOR" },
   { path: '/vandermonde', name: "Linear/Iterative/Vandermonde" },
 
-  { path: '/newton_div_diff', name: "Interpolation/Factorization/NewtonDivDiff" },
-  { path: '/larange', name: "Interpolation/Factorization/Larange" },
-  { path: '/linear_spline', name: "Interpolation/Factorization/LinearSpline" },
-  { path: '/quadratic_spline', name: "Interpolation/Factorization/QuadraticSpline" },
-  { path: '/cubic_spline', name: "Interpolation/Factorization/CubicSpline" },
+  { path: '/newton_div_diff', name: "Interpolation/NewtonDivDiff" },
+  { path: '/larange', name: "Interpolation/Larange" },
+  { path: '/linear_spline', name: "Interpolation/LinearSpline" },
+  { path: '/quadratic_spline', name: "Interpolation/QuadraticSpline" },
+  { path: '/cubic_spline', name: "Interpolation/CubicSpline" },
 
   { path: '*', redirect: { name: 'Home' } }
 ]

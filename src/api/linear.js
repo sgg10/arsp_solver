@@ -22,10 +22,10 @@ function execGuassianElimination({ A, b }){
     return post(API_ELIMINATION_URL + '/gaussian_elimination', data, config)
 }
 
-// function execPartialPivot({ A, b }){
-//     let { config, data } = eliminationRequest(A, b)
-//     return post(API_ELIMINATION_URL + '/gaussian_elimination', data, config)
-// }
+function execPartialPivot({ A, b }){
+    let { config, data } = eliminationRequest(A, b)
+    return post(API_ELIMINATION_URL + '/partial_pivot', data, config)
+}
 
 function execTotalPivot({ A, b, }){
     let { config, data } = eliminationRequest(A, b)
@@ -60,6 +60,11 @@ function execCholesky({ A }){
     return post(API_FACTORIZATION_URL + '/cholesky', data, config)
 }
 
+function execSimpleLU({ A, b }){
+    let { config, data } = factorizationRequest(A, b)
+    return post(API_FACTORIZATION_URL + '/simple_lu', data, config)
+}
+
 function execPartialLU({ A }){
     let { config, data } = factorizationRequest(A)
     return post(API_FACTORIZATION_URL + '/partial_lu', data, config)
@@ -87,6 +92,11 @@ function execSOR({ A, b, x0, n, iterations, tolerance, omega }){
     return post(API_ITERATIVE_URL + '/sor', data, config)
 }
 
+function execGaussSeidel({ A, b, x0, n, iterations, tolerance }){
+    let { config, data } = iterativeRequest(A, b, n, x0, iterations, tolerance)
+    return post(API_ITERATIVE_URL + '/gauss_seidel', data, config)
+}
+
 function execVandermonde({ A, b, x0, n, iterations, tolerance, x, y }){
     let { config, data } = iterativeRequest(A, b, n, x0, iterations, tolerance, x, y)
     return post(API_ITERATIVE_URL + '/vandermonde', data, config)
@@ -94,12 +104,15 @@ function execVandermonde({ A, b, x0, n, iterations, tolerance, x, y }){
 
 export {
     execGuassianElimination,
+    execSimpleLU,
+    execPartialPivot,
     execTotalPivot,
     execCrout,
     execDoolittle,
     execCholesky,
     execPartialLU,
     execJacobi,
+    execGaussSeidel,
     execSOR,
     execVandermonde
 }

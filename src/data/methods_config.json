@@ -20,15 +20,15 @@
         "name": "Linear Equations - Elimination",
         "methods": [
             { "name": "Gaussian Elimination", "to": "/gausian_elimination" },
-            { "name": "Partial Pivot", "to": "/partial_pivot", "variant": "warning" },
-            { "name": "Total Pivot", "to": "/total_pivot" }
+            { "name": "Partial Pivot", "to": "/partial_pivot" },
+            { "name": "Total Pivot", "to": "/total_pivot", "variant": "danger" }
         ]
     },
     {
         "name": "Linear Equations - Factorization",
         "methods": [
-            { "name": "Simple LU", "to": "/simple_lu", "variant": "danger" },
-            { "name": "Pivot LU", "to": "/pivot_lu"},
+            { "name": "Simple LU", "to": "/simple_lu" },
+            { "name": "Pivot LU", "to": "/pivot_lu" },
             { "name": "Crout", "to": "/crout" },
             { "name": "Doolittle", "to": "/doolittle" },
             { "name": "Cholesky", "to": "/cholesky" }
@@ -38,7 +38,7 @@
         "name": "Linear Equations - Iterative",
         "methods": [
             { "name": "Jacobi", "to": "/jacobi"},
-            { "name": "Gauss-Seidel", "to": "/gauss_seidel", "variant": "danger" },
+            { "name": "Gauss-Seidel", "to": "/gauss_seidel" },
             { "name": "SOR", "to": "/sor" },
             { "name": "Vandermonde", "to": "/vandermonde"}
         ]
@@ -46,9 +46,9 @@
     {
         "name": "Interpolation",
         "methods": [
-            { "name": "Newton Divided Differences", "to": "/newton_div_diff", "variant": "dark" },
-            { "name": "Larange", "to": "/larange", "variant": "dark" },
-            { "name": "Linear Spline", "to": "/linear_spline", "variant": "dark" },
+            { "name": "Newton Divided Differences", "to": "/newton_div_diff" },
+            { "name": "Larange", "to": "/larange" },
+            { "name": "Linear Spline", "to": "/linear_spline" },
             { "name": "Quadratic Spline", "to": "/quadratic_spline", "variant": "danger" },
             { "name": "Cubic Spline", "to": "/cubic_spline", "variant": "danger" }
         ]
