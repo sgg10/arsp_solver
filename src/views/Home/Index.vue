@@ -11,6 +11,19 @@
                 <MethodSection :methods="section.methods" :name="section.name" />
             </b-col>
         </b-row>
+        <b-row >
+            <b-col class="center">
+                <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/UqHWHz8BhZE"
+                    title=""
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                />
+            </b-col>
+        </b-row>
     </div>
 </template>
 
@@ -29,3 +42,11 @@ export default {
     }
 }
 </script>
+
+<style>
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>
