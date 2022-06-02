@@ -44,7 +44,7 @@
                 </section>
                 <b-row>
                     <b-col>
-                        <b-button variant="success" block @click="graph">Graficar</b-button>
+                        <b-button variant="success" block @click="graph">Execute</b-button>
                     </b-col>
                 </b-row>
             </b-col>
